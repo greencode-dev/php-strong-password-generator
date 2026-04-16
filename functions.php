@@ -1,6 +1,7 @@
 <?php
 
 $password = "";
+$error = null;
 
 if(isset($_GET["length"])) {
 
@@ -21,13 +22,16 @@ if(isset($_GET["length"])) {
     if(isset($_GET["symbols"]) && $_GET["symbols"] == "on") {
         $characters .= $symbols;
     }
-   
-    for($i = 0; $i < $_GET['length']; $i++) {
-
-        $randomPosition = rand(0, strlen($characters) - 1);
-        $randomCharacter = substr($characters, $randomPosition,1);
-
-        $password.= $randomCharacter;
+    
+    if (!empty($characters)) {
+        for($i = 0; $i < $_GET['length']; $i++) {
+            $randomPosition = rand(0, strlen($characters) - 1);
+            $randomCharacter = substr($characters, $randomPosition, 1);
+            $password .= $randomCharacter;
+        }
+    } else {
+        // Messaggio di errore se nessun set di caratteri è selezionato
+        $error = "Attenzione: devi selezionare almeno un tipo di carattere!";
     }
 }
 ?>

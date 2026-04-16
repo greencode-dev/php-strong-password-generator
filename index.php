@@ -28,6 +28,12 @@ if ($password !="") {
             <div class="col-md-6">
                 <h1 class="text-center text-secondary mb-4">Genera la tua Password</h1>
 
+                <?php if ($error): ?>
+                    <div class="alert alert-danger shadow-sm mb-4" role="alert">
+                        <?php echo $error; ?>
+                    </div>
+                <?php endif; ?>
+
                 <div class="card shadow p-4 border-0">
                     <form action="" method="GET">
                         <div class="mb-3">
@@ -37,16 +43,16 @@ if ($password !="") {
 
                         <div class="mb-4">
                             <label class="form-label d-block fw-semibold">Parametri della Password:</label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="letters" name="letters" checked>
+                            <div class="form-check form-switch form-check-inline">
+                                <input class="form-check-input" type="checkbox" role="switch" id="letters" name="letters" checked>
                                 <label class="form-check-label" for="letters">Lettere</label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="numbers" name="numbers" checked>
+                            <div class="form-check form-switch form-check-inline">
+                                <input class="form-check-input" type="checkbox" role="switch" id="numbers" name="numbers" checked>
                                 <label class="form-check-label" for="numbers">Numeri</label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="symbols" name="symbols" checked>
+                            <div class="form-check form-switch form-check-inline">
+                                <input class="form-check-input" type="checkbox" role="switch" id="symbols" name="symbols" checked>
                                 <label class="form-check-label" for="symbols">Simboli</label>
                             </div>
                         </div>
