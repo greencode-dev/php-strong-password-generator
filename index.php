@@ -18,47 +18,46 @@ if ($password !="") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator</title>
+    <title>Strong Password Generator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
- 
-    <h1>Generatore di Password</h1>
+<body class="bg-primary bg-opacity-10">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center text-secondary mb-4">Genera la tua Password</h1>
 
-    <form action="">
+                <div class="card shadow p-4 border-0">
+                    <form action="" method="GET">
+                        <div class="mb-3">
+                            <label for="length" class="form-label fw-semibold">Lunghezza della Password (5-20):</label>
+                            <input type="number" class="form-control" id="length" name="length" value="10" min="5" max="20">
+                        </div>
 
-        <label for="length">Lunghezza della Password:</label>
-        <input type="number" id="length" name="length" value="5" min="5" max="20">
+                        <div class="mb-4">
+                            <label class="form-label d-block fw-semibold">Parametri della Password:</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="letters" name="letters" checked>
+                                <label class="form-check-label" for="letters">Lettere</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="numbers" name="numbers" checked>
+                                <label class="form-check-label" for="numbers">Numeri</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="symbols" name="symbols" checked>
+                                <label class="form-check-label" for="symbols">Simboli</label>
+                            </div>
+                        </div>
 
-        <div>
-            <input type="checkbox" id="letters" name="letters">
-            <label for="letters">Lettere</label>
-            <input type="checkbox" id="numbers" name="numbers">
-            <label for="numbers">Numeri</label>
-            <input type="checkbox" id="symbols" name="symbols">
-            <label for="symbols">Simboli</label>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Genera Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <br>
-        <br>
-
-        <button type="submit">Genera Password</button>
-
-    </form>
-
-    <hr>
-
-    <?php
-    if($password != "") {
-    ?>
-
-    <h2>Password di <?php echo $_GET['length']; ?> caratteri generata:</h2>
-    <pre><?php echo $password;?></pre>
-
-    <?php
-    }
-    ?>
-
-
-    
+    </div>
 </body>
 </html>
